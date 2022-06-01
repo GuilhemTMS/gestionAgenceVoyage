@@ -1,10 +1,17 @@
 package com.inti.model;
 
+import java.util.List;
+
+import javax.persistence.OneToMany;
+
 public class Destination {
 	
 	private Long idDestination;
 	private Long longitude;
 	private Long latitude;
+	
+	@OneToMany(mappedBy="Destination")
+	private List<Hotel> hotels;
 	
 	public Destination() {
 		
