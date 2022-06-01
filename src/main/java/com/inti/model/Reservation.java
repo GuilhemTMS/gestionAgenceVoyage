@@ -13,7 +13,10 @@ public class Reservation {
 	@ManyToOne
 	@JoinColumn(name = "id_hotel")
 	private Hotel hotel;
-
+	@ManyToOne
+	
+	@JoinColumn(name = "id_voyageur")
+	private Voyageur voyageur;
 	public Reservation() {
 	}
 
