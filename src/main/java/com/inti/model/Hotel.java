@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Hotel implements Serializable{
@@ -14,6 +16,9 @@ public class Hotel implements Serializable{
 	private Long idHotel;
 	private String nom;
 	private int nbEtoile;
+	@ManyToOne
+	@JoinColumn(name="id_destination")
+	private Destination destination;
 	
 	public Hotel() {
 		
@@ -22,6 +27,20 @@ public class Hotel implements Serializable{
 	public Hotel(String nom, int nbEtoile) {
 		this.nom = nom;
 		this.nbEtoile = nbEtoile;
+	}
+	
+	public Hotel(String nom, int nbEtoile, Destination destination) {
+		this.nom = nom;
+		this.nbEtoile = nbEtoile;
+		this.destination = destination;
+	}
+
+	public Destination getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	public Long getIdHotel() {
@@ -52,5 +71,6 @@ public class Hotel implements Serializable{
 	public String toString() {
 		return "Hotel [idHotel=" + idHotel + ", nom=" + nom + ", nbEtoile=" + nbEtoile + "]";
 	}
+	
 	
 }
