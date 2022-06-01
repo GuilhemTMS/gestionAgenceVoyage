@@ -10,7 +10,7 @@ public class Destination {
 	private Long longitude;
 	private Long latitude;
 	
-	@OneToMany(mappedBy="Destination")
+	@OneToMany(mappedBy="destination")
 	private List<Hotel> hotels;
 	
 	public Destination() {
