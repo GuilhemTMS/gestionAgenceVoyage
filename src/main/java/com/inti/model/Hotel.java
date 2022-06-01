@@ -1,7 +1,6 @@
 package com.inti.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +22,9 @@ public class Hotel implements Serializable{
 	@JoinColumn(name="id_destination")
 	private Destination destination;
 	@OneToMany
-	private List<Avis> avisListe = new ArrayList<>();
+	private List<Avis> avisListe;
+	@OneToMany(mappedBy = "hotel")
+	private List<Reservation> reservations;
 	
 	public Hotel() {
 		
