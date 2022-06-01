@@ -9,6 +9,7 @@ public class Destination {
 	private Long idDestination;
 	private Long longitude;
 	private Long latitude;
+	private String altitude;
 	
 	@OneToMany(mappedBy="destination")
 	private List<Hotel> hotels;
