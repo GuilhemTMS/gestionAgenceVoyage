@@ -1,6 +1,8 @@
 package com.inti.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Hotel implements Serializable{
@@ -19,6 +22,8 @@ public class Hotel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_destination")
 	private Destination destination;
+	@OneToMany
+	private List<Avis> avisListe = new ArrayList<>();
 	
 	public Hotel() {
 		
@@ -65,6 +70,14 @@ public class Hotel implements Serializable{
 
 	public void setNbEtoile(int nbEtoile) {
 		this.nbEtoile = nbEtoile;
+	}
+	
+	public List<Avis> getAvisListe() {
+		return avisListe;
+	}
+
+	public void setAvisListe(List<Avis> avisListe) {
+		this.avisListe = avisListe;
 	}
 
 	@Override
