@@ -6,6 +6,7 @@ public class Avis {
 	
 	private Long idAvis;
 	private String commentaire;
+	private String titre;
 	
 	@ManyToOne
 	private Hotel hotel;
