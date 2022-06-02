@@ -18,6 +18,7 @@ public class Hotel implements Serializable{
 	private Long idHotel;
 	private String nom;
 	private int nbEtoile;
+	private int coordonees;
 	@ManyToOne
 	@JoinColumn(name="id_destination")
 	private Destination destination;
